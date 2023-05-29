@@ -10,6 +10,9 @@
 <h2><%= post.title %></h2>
 <p><%= post.content %></p>
 <span><%= post.created_at %></span>
+<div class="edit-delete-wrapper">
+<%= button_to "削除", post_path(post), method: :delete, class:"link-delete-button" %>
+</div>
 </li>
 <% end %>
 </ul>
