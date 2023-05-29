@@ -4,11 +4,13 @@ class PostsController < ApplicationController
         # データベースから投稿を全て取得する
         @posts = Post.all
     end
+
     # 新しい投稿のコントローラ設定
     def new
         # データベースから投稿を全て取得する
         @post = Post.new
     end
+
     def create
         @post = Post.new(post_params)
 
@@ -18,6 +20,11 @@ class PostsController < ApplicationController
             render :new
         end
     end
+
+    def edit
+        @post = Post.find(params:[:id])
+    end
+    
     private
     def post_params
         params.require(:post).permit(:title,:content)
